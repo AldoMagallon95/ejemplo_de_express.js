@@ -15,9 +15,12 @@ app.get('/home', (req, res) => {
   res.send('home');
 });
 
+
 app.get('/products', (req, res) => {
   const products = [];
-  for (let index = 0; index < 100; index++) {
+  const {size} = req.query;
+  const limit = size || 10;
+  for (let index = 0; index < limit; index++) {
     products.push({
       name: faker.commerce.productName(),
       price: parseInt(faker.commerce.price(), 10),
@@ -26,6 +29,10 @@ app.get('/products', (req, res) => {
   };
   res.json(products);
 });
+
+app.get('/products/filter', (req, res) => {
+  res.send('Soy un filter');
+})
 
 app.get('/products/:id', (req, res) => {
   const {id} = req.params;
