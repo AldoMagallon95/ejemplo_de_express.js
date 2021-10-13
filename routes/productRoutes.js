@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
   res.json(products);
 });
 
-router.get('/filter', (req, res) => {
+router.get('/:filter', (req, res) => {
   res.send('Soy un filter');
 })
 
