@@ -23,7 +23,7 @@ routerApi(app);
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
-const whitelist = ['https://localhost8080', 'http://127.0.0.1:5500/frontend.html'];
+const whitelist = ['https://localhost8080'];
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin)) {
